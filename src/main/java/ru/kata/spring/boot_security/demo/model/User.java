@@ -106,10 +106,6 @@ public class User implements UserDetails {
    public void addRole(Role role) {
       this.roles.add(role);
    }
-//
-//   public void removeRole(Role role) {
-//      this.roles.remove(role);
-//   }
 
    public void dropRoles() {
       this.roles.clear();
