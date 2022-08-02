@@ -16,17 +16,17 @@ import java.util.List;
 @Controller
 public class UsersController {
 
-    final private Long[] emptyList = null;
+    private final UserService userService;
+    private final RoleService roleService;
 
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    RoleService roleService;
+    public UsersController(@Autowired UserService userService, @Autowired RoleService roleService) {
+        this.userService = userService;
+        this.roleService = roleService;
+    }
 
     @GetMapping(value = "/admin")
     public String showAllUsers(ModelMap model) {
-        model.addAttribute("users", userService.listUsers());
+        model.addAttribute("users", userService.listUsers(true));
         return "admin";
     }
 
