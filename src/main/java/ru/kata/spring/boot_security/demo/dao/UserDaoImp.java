@@ -36,15 +36,6 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   public List<User> listUsers(boolean isEager) {
-      if (isEager) {
-         return entityManager.createQuery("select u from User u").getResultList();
-      } else {
-         return listUsers();
-      }
-   }
-
-   @Override
    public void update(User user) {
       entityManager.merge(user);
    }

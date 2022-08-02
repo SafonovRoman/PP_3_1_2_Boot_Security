@@ -14,8 +14,6 @@ public interface UserDao {
 
    List<User> listUsers();
 
-   List<User> listUsers(boolean isEager);
-
    void update(User user);
 
    void delete(Long id);
