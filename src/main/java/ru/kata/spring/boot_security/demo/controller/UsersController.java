@@ -74,11 +74,7 @@ public class UsersController {
         user.setUsername(username);
         user.setPassword(password);
         user.dropRoles();
-        if (rolesIds != null) {
-            for (Long roleId : rolesIds) {
-                user.addRole(roleService.getRole(roleId));
-            }
-        }
+        userService.addRoles(user, rolesIds);
         userService.update(user);
         model.addAttribute("user", user);
         model.addAttribute("roles", roleService.listRoles());
