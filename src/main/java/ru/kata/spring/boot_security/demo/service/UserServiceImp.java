@@ -73,7 +73,6 @@ public class UserServiceImp implements UserService {
    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
       User user = userDao.getUserByUsername(username);
       if (user != null) {
-         Hibernate.initialize(user.getAuthorities());
          return user;
       } else {
          throw new UsernameNotFoundException("Пользователя с таким username не существует");
